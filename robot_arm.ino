@@ -40,7 +40,7 @@ const int heightInt = 90;   // initial extend servo position in degrees
 int heightAngle = heightInt;   
 
 void setup() {
-  // put your setup code here, to run once:
+  // setup code, to run once:
   pinMode(SW_pin, INPUT);
   digitalWrite(SW_pin, HIGH);
   Serial.begin(115200);  
@@ -52,6 +52,8 @@ void setup() {
 }
 
 void loop() {
+  // loop code, to repeat:
+ 
   // Claw positioning
   if (analogRead(X1_pin) < 50 ) {
     clawAngle++;
@@ -72,11 +74,11 @@ void loop() {
   }
 
   // Height positioning
-  if (analogRead(X2_pin) < 50 ) {
+  if (analogRead(X2_pin) < 250 ) {
     heightAngle++;
     if (heightAngle > heightMax) heightAngle = heightMax;
     
-  } else if (analogRead(X2_pin) > 900 ) {
+  } else if (analogRead(X2_pin) > 750 ) {
     heightAngle--;
     if (heightAngle < heightMin) heightAngle = heightMin;
   }
