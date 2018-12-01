@@ -53,7 +53,7 @@ void setup() {
 
 void loop() {
   // loop code, to repeat:
- 
+  
   // Claw positioning
   if (analogRead(X1_pin) < 50 ) {
     clawAngle++;
